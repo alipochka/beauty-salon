@@ -1,0 +1,99 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Muted Mauve Background */
+    background-color: #f2e7f5; /* Soft, off-white with a hint of purple */
+    transition: background 0.5s ease;
+  }
+  
+  h1, h2, h3 {
+    font-family: 'Dancing Script', cursive;
+    color: #8e24aa; /* Plum Purple for a refined header */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05); /* Subtle text shadow for depth */
+  }
+  
+  nav {
+    /* Pale Lilac Navigation */
+    background-color: #ede7f6; /* Very pale purple */
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Very subtle shadow */
+    transition: background 0.3s ease;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem; /* Slightly wider gap */
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #5e35b1; /* Dark Lavender */
+    transition: color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    color: #7e57c2; /* Lighter Lavender on Hover */
+  }
+  
+  form {
+    max-width: 450px; /* Slightly wider form */
+    margin: 2rem auto;
+    padding: 1.5rem; /* More padding */
+    border-radius: 12px; /* Softer rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Very gentle shadow */
+    /* Off-White Form */
+    background-color: #fffaf0; /* Ivory */
+    transition: box-shadow 0.3s ease;
+  }
+  
+  form:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow increase */
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 0.75rem; /* Slightly larger padding */
+    margin-top: 0.75rem; /* More space */
+    border: 1px solid #d1c4e9; /* Light Grayish-Purple Border */
+    border-radius: 6px; /* Softer rounded corners */
+    transition: border-color 0.3s ease;
+  }
+  
+  button {
+    width: 100%;
+    padding: 0.75rem; /* Slightly larger padding */
+    margin-top: 1rem; /* More space */
+    border: none;
+    border-radius: 6px; /* Softer rounded corners */
+    /* Dusty Lavender Button */
+    background-color: #7e57c2; /* Lighter Lavender */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  input:focus, select:focus, button:focus {
+    border-color: #7e57c2; /* Lighter Lavender on Focus */
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(126, 87, 194, 0.2); /* Subtle focus ring */
+  }
+  
+  button:hover {
+    background-color: #5e35b1; /* Darker Lavender on Hover */
+  }
+  header {
+    background-color: #f2e7f5;
+    padding: 1rem 0;
+  }
+  
+  .header-container {
+    display: flex;
+    align-items: center; /* Vertical alignment */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  
