@@ -2,7 +2,6 @@ const Contacts = () => {
     return (
       <div className="contacts-page">
         <div className="container">
-        
           
           <div className="contact-info">
             <div className="contact-section">
