@@ -8,12 +8,13 @@
     z-index: 100;
   }
   
+  
   .header .container {
     
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    padding: 5px 3px;
   }
   
   .logo {
@@ -41,7 +42,7 @@
   
   /* Стили для компонента Footer */
   .footer {
-    background-color: var(--dark-color);
+    background-color: var(--primary-color);
     color: white;
     padding: 15px  10px;
   }
@@ -148,9 +149,13 @@
     font-size: 13px;
     color: var(--dark-color);
     }
-    
+      .see-all,h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--primary-color);
+    }
     /* Стили для BookingForm */
-    .booking-form {
+    /* .booking-form {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
@@ -159,14 +164,10 @@
     margin: 0 auto;
     }
     
-    .booking-form h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: var(--primary-color);
-    }
+    */
     
     .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     }
     
     .form-group label {
@@ -254,10 +255,10 @@
     color: var(--gray-color);
     text-align: right;
     margin-top: 10px;
-    }
+    } 
     
     /* Адаптивные стили */
-    @media (max-width: 768px) {
+    @media (max-width: 400px) {
     .header .container {
     flex-direction: column;
     padding: 15px;
@@ -277,7 +278,7 @@
     }
     
     .booking-form {
-    padding: 20px;
+    padding: 10px;
     }
     
     .master-card img {
@@ -321,5 +322,99 @@
       .service-card.even-card {
         animation: floatEven 6s ease-in-out infinite 1.5s;
       }
+      :root {
+  /* Базовые отступы */
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 8px;
+  --space-md: 24px;
+  --space-lg: 12px;
+  --space-xl: 18px;
+  --space-xxl: 24px;
+  
+  /* Максимальная ширина контента */
+  --max-width: 1200px;
+}
+
+/* Общие отступы для секций */
+.section {
+  padding: var(--space-xl) 0;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* Отступы между блоками */
+.flow > * + * {
+  margin-top: var(--space-md);
+}
+.header {
+  padding: var(--space-sm) 0;
+}
+
+.nav-list li {
+  margin-left: var(--space-lg);
+}
+.service-card {
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.services-grid {
+  gap: var(--space-lg);
+  margin: var(--space-xl) 0;
+}
+.review {
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.review-header {
+  margin-bottom: var(--space-sm);
+}
+@media (max-width: 768px) {
+  :root {
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-xxl: 48px;
+  }
+  
+  .section {
+    padding: var(--space-lg) 0;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --space-sm: 12px;
+    --space-md: 14px;
+    --space-lg: 20px;
+  }
+  
+  .nav-list li {
+    margin-left: var(--space-md);
+  }
+}
+h1 {
+  margin: 0 0 var(--space-lg);
+}
+
+h2 {
+  margin: 0 0 var(--space-md);
+}
+
+h3 {
+  margin: 0 0 var(--space-sm);
+}
+
+p {
+  margin: 0 0 var(--space-md);
+}
       /* Обновленные стили для главной страницы */
 /*  */
+      

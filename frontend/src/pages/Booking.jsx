@@ -1,48 +1,143 @@
 import { useState } from 'react';
 import BookingForm from '../components/BookingForm';
-
+import '../styles/components.css';
 const Booking = () => {
-  const [services] = useState([
-    { id: 1, name: 'Мужская стрижка' },
-    { id: 2, name: 'Женская стрижка' },
-    { id: 3, name: 'Окрашивание' },
-    { id: 4, name: 'Укладка' },
-    { id: 5, name: 'Бритье' },
-  ]);
+  
+const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    service: '',
+    master: '',
+    date: '',
+    time: ''
+  });
 
-  const [masters] = useState([
-    { id: 1, name: 'Анна Иванова' },
-    { id: 2, name: 'Игорь Петров' },
-    { id: 3, name: 'Елена Смирнова' },
-    { id: 4, name: 'Дмитрий Кузнецов' },
-  ]);
+  const services = [
+    { id: '1', name: 'Женская стрижка' },
+    { id: '2', name: 'Мужская стрижка' },
+    { id: '3', name: 'Окрашивание' }
+  ];
 
-  const [bookingSuccess, setBookingSuccess] = useState(false);
+  const masters = [
+    { id: '1', name: 'Анна Иванова' },
+    { id: '2', name: 'Игорь Петров' }
+  ];
 
-  const handleBookingSubmit = (formData) => {
-    console.log('Booking data:', formData);
-    // Здесь будет отправка данных на сервер
-    setBookingSuccess(true);
-    // В реальном приложении нужно обрабатывать ошибки
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Форма отправлена:', formData);
+    // Здесь будет отправка данных
   };
 
   return (
     <div className="booking-page">
-      <div className="container">
-        {bookingSuccess ? (
-          <div className="booking-success">
-            <h2>Спасибо за вашу заявку!</h2>
-            <p>Мы свяжемся с вами для подтверждения записи.</p>
-            <button onClick={() => setBookingSuccess(false)}>Сделать новую запись</button>
+      <div className="compact-container">
+        <h1>Онлайн-запись</h1>
+        
+        <form onSubmit={handleSubmit} className="compact-form">
+          <div className="form-row">
+            <div className="form-group">
+              <label>Имя</label>
+              <input 
+                type="text" 
+                name="name" 
+                value={formData.name} 
+                onChange={handleChange} 
+                required 
+              />
+            </div>
+            
+            <div className="form-group">
+              <label>Телефон</label>
+              <input 
+                type="tel" 
+                name="phone" 
+                value={formData.phone} 
+                onChange={handleChange} 
+                required 
+              />
+            </div>
           </div>
-        ) : (
-          <>
-            <BookingForm services={services} masters={masters} onSubmit={handleBookingSubmit} />
-          </>
-        )}
+          
+          <div className="form-row">
+            <div className="form-group">
+              <label>Email</label>
+              <input 
+                type="email" 
+                name="email" 
+                value={formData.email} 
+                onChange={handleChange} 
+              />
+            </div>
+            
+            <div className="form-group">
+              <label>Дата</label>
+              <input 
+                type="date" 
+                name="date" 
+                value={formData.date} 
+                onChange={handleChange} 
+                required 
+              />
+            </div>
+          </div>
+          
+          <div className="form-row">
+            <div className="form-group">
+              <label>Услуга</label>
+              <select 
+                name="service" 
+                value={formData.service} 
+                onChange={handleChange} 
+                required
+              >
+                <option value="">Выберите услугу</option>
+                {services.map(service => (
+                  <option key={service.id} value={service.id}>{service.name}</option>
+                ))}
+              </select>
+            </div>
+            
+            <div className="form-group">
+              <label>Мастер</label>
+              <select 
+                name="master" 
+                value={formData.master} 
+                onChange={handleChange} 
+                required
+              >
+                <option value="">Выберите мастера</option>
+                {masters.map(master => (
+                  <option key={master.id} value={master.id}>{master.name}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+          
+          <div className="form-row">
+            <div className="form-group time-group">
+              <label>Время</label>
+              <input 
+                type="time" 
+                name="time" 
+                value={formData.time} 
+                onChange={handleChange} 
+                required 
+              />
+            </div>
+          </div>
+          
+          <button type="submit" className="submit-btn">Записаться</button>
+        </form>
       </div>
     </div>
-  );
+  )
 };
 
 export default Booking;

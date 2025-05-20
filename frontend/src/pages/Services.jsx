@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ServiceCard from '../components/ServiceCard';
-
+import '../styles/components.css';
 const Services = () => {
   const [services] = useState([
     { id: 1, name: 'Мужская стрижка', description: 'Стрижка с учетом особенностей волос и формы головы', price: 1200, duration: 45, category: 'Мужские' },
@@ -41,6 +41,7 @@ const Services = () => {
             <ServiceCard key={service.id} service={service} />
           ))}
         </div>
+        
       </div>
     </div>
   );

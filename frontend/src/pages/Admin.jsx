@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import '../styles/components.css';
 const Admin = () => {
   const [activeTab, setActiveTab] = useState('bookings');
   const [isLoggedIn, setIsLoggedIn] = useState(false);

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import ServiceCard from '../components/ServiceCard';
 import MasterCard from '../components/MasterCard';
 import Review from '../components/Review';
-
+import '../styles/components.css';
 const Home = () => {
   // Пример данных (в реальном приложении будут запросы к API)
   const featuredServices = [

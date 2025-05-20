@@ -21,10 +21,12 @@ function App() {
           <Route path="/account" element={<Account />} />
           <Route path="/admin" element={<Admin />} />
         </Routes>
+        
       </main>
       <Footer />
     </div>
   );
 }
+
 
 export default App;
