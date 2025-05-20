@@ -177,22 +177,102 @@ const Admin = () => {
             </div>
           )}
           
-          {activeTab === 'services' && (
-            <div className="services-management">
-              <h2>Управление услугами</h2>
-              <p>Здесь будет интерфейс для управления услугами</p>
-            </div>
-          )}
-          
-          {activeTab === 'schedule' && (
-            <div className="schedule-management">
-              <h2>Управление графиком</h2>
-              <p>Здесь будет интерфейс для управления графиком работы</p>
-            </div>
-          )}
+         {activeTab === 'services' && (
+    <div className="table-container">
+      <h2>Управление услугами</h2>
+      <div className="table-actions">
+        <button className="add-btn">
+          <i className="icon-add"></i> Добавить услугу
+        </button>
+      </div>
+      <table className="services-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Категория</th>
+            <th>Длительность</th>
+            <th>Цена</th>
+            <th>Действия</th>
+          </tr>
+        </thead>
+        <tbody>
+          {services.map(service => (
+            <tr key={service.id}>
+              <td>{service.id}</td>
+              <td>{service.name}</td>
+              <td>{service.category}</td>
+              <td>{service.duration} мин</td>
+              <td>{service.price} ₽</td>
+              <td className="actions">
+                <button className="edit-btn">
+                  <i className="icon-edit"></i> Редактировать
+                </button>
+                <button className="delete-btn">
+                  <i className="icon-delete"></i> Удалить
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )}
+
+  {activeTab === 'schedule' && (
+    <div className="schedule-container">
+      <h2>Управление графиком</h2>
+      <div className="schedule-controls">
+        <select className="master-select">
+          <option value="">Все мастера</option>
+          {masters.map(master => (
+            <option key={master.id} value={master.id}>{master.name}</option>
+          ))}
+        </select>
+        <button className="add-slot-btn">
+          <i className="icon-add"></i> Добавить слот
+        </button>
+      </div>
+      
+      <div className="week-navigation">
+        <button className="nav-btn">
+          <i className="icon-arrow-left"></i>
+        </button>
+        <span className="current-week">Неделя 12-18 июня 2023</span>
+        <button className="nav-btn">
+          <i className="icon-arrow-right"></i>
+        </button>
+      </div>
+      
+      <div className="schedule-grid">
+        <div className="time-column">
+          <div className="time-header">Время</div>
+          {[...Array(12)].map((_, i) => (
+            <div key={i} className="time-slot">{9 + i}:00</div>
+          ))}
         </div>
+        
+        {['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'].map(day => (
+          <div key={day} className="day-column">
+            <div className="day-header">{day}</div>
+            {[...Array(12)].map((_, i) => (
+              <div 
+                key={i} 
+                className={`time-cell ${i % 2 === 0 ? 'even' : 'odd'}`}
+                onClick={() => handleCellClick(day, 9 + i)}
+              >
+                {/* Здесь будут отображаться записи */}
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
+  )}
+</div>
+        </div>
+      </div>
+  
   );
 };
 
